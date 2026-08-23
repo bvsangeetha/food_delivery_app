@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FoodLounge - Login</title>
+
+
+    <style>
+
+        /* =========================
+           BASIC RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+
+        /* =========================
+           PAGE BACKGROUND
+        ========================= */
+
+        body {
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 25px;
+
+            background: linear-gradient(
+                135deg,
+                #fff4e6,
+                #ffe0b2
+            );
+        }
+
+
+        /* =========================
+           MAIN LOGIN CONTAINER
+        ========================= */
+
+        .login-page {
+            width: 100%;
+
+            max-width: 1200px;
+
+            min-height: 680px;
+
+            display: flex;
+
+            background-color: white;
+
+            border-radius: 22px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 15px 45px
+                rgba(0, 0, 0, 0.18);
+        }
+
+
+        /* =========================
+           LEFT FOOD SECTION
+        ========================= */
+
+        .food-section {
+            width: 50%;
+
+            position: relative;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            padding: 60px;
+
+            color: white;
+
+            overflow: hidden;
+
+            background-image:
+
+                linear-gradient(
+                    rgba(20, 15, 10, 0.62),
+                    rgba(20, 15, 10, 0.75)
+                ),
+
+                url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=85");
+
+            background-size: cover;
+
+            background-position: center;
+        }
+
+
+        /* =========================
+           FOODLOUNGE LOGO
+        ========================= */
+
+        .food-logo {
+            position: absolute;
+
+            top: 35px;
+
+            left: 50px;
+
+            font-size: 29px;
+
+            font-weight: bold;
+
+            color: white;
+        }
+
+
+        .food-logo span {
+            color: #ff6a2a;
+        }
+
+
+        /* =========================
+           FOOD CONTENT
+        ========================= */
+
+        .food-content {
+            max-width: 500px;
+        }
+
+
+        .food-content h1 {
+            font-size: 52px;
+
+            line-height: 1.15;
+
+            margin-bottom: 25px;
+
+            font-weight: 800;
+        }
+
+
+        .white-text {
+            color: white;
+        }
+
+
+        .orange-text {
+            background: linear-gradient(
+                90deg,
+                #ff6330,
+                #ffb27c
+            );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+            background-clip: text;
+
+            color: transparent;
+        }
+
+
+        .food-content p {
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            color: #f2f2f2;
+        }
+
+
+        /* =========================
+           RIGHT LOGIN SECTION
+        ========================= */
+
+        .login-section {
+            width: 50%;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 55px;
+
+            background-color: white;
+        }
+
+
+        /* =========================
+           LOGIN CONTAINER
+        ========================= */
+
+        .login-container {
+            width: 100%;
+
+            max-width: 420px;
+        }
+
+
+        /* =========================
+           LOGIN HEADING
+        ========================= */
+
+        .login-title {
+            margin-bottom: 35px;
+        }
+
+
+        .login-title h2 {
+            font-size: 36px;
+
+            color: #252525;
+
+            margin-bottom: 10px;
+        }
+
+
+        .login-title h2 span {
+            color: #ff5a1f;
+        }
+
+
+        .login-title p {
+            color: #777;
+
+            font-size: 15px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+
+        label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #333;
+
+            font-size: 15px;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           INPUT FIELDS
+        ========================= */
+
+        input {
+            width: 100%;
+
+            padding: 14px 15px;
+
+            border: 1px solid #d5d5d5;
+
+            border-radius: 9px;
+
+            outline: none;
+
+            font-size: 15px;
+
+            transition: 0.3s;
+        }
+
+
+        input:focus {
+            border-color: #ff5a1f;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(255, 90, 31, 0.12);
+        }
+
+
+        /* =========================
+           FORGOT PASSWORD
+        ========================= */
+
+        .forgot-password {
+            text-align: right;
+
+            margin-top: -7px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .forgot-password a {
+            color: #ff5a1f;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: bold;
+        }
+
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================
+           LOGIN BUTTON
+        ========================= */
+
+        .login-btn {
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background-color: #ff5a1f;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .login-btn:hover {
+            background-color: #e9470f;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           SIGNUP TEXT
+        ========================= */
+
+        .signup-text {
+            text-align: center;
+
+            margin-top: 22px;
+
+            color: #666;
+
+            font-size: 14px;
+        }
+
+
+        .signup-text a {
+            color: #ff5a1f;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+
+        .signup-text a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================
+           TABLET RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            body {
+                padding: 15px;
+            }
+
+
+            .food-section {
+                padding: 40px;
+            }
+
+
+            .food-content h1 {
+                font-size: 40px;
+            }
+
+
+            .login-section {
+                padding: 40px 30px;
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE RESPONSIVE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            body {
+                padding: 0;
+            }
+
+
+            .login-page {
+                min-height: 100vh;
+
+                flex-direction: column;
+
+                border-radius: 0;
+            }
+
+
+            .food-section {
+                width: 100%;
+
+                min-height: 350px;
+
+                padding: 100px 30px 45px;
+            }
+
+
+            .food-logo {
+                top: 28px;
+
+                left: 30px;
+            }
+
+
+            .food-content h1 {
+                font-size: 36px;
+            }
+
+
+            .food-content p {
+                font-size: 16px;
+            }
+
+
+            .login-section {
+                width: 100%;
+
+                padding: 45px 25px;
+            }
+
+
+            .login-title h2 {
+                font-size: 31px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         COMPLETE LOGIN PAGE
+    ========================= -->
+
+    <div class="login-page">
+
+
+        <!-- =========================
+             LEFT FOOD SECTION
+        ========================= -->
+
+        <section class="food-section">
+
+
+            <div class="food-logo">
+
+                Food<span>Lounge</span>
+
+            </div>
+
+
+            <div class="food-content">
+
+
+                <h1>
+
+                    <span class="white-text">
+
+                        Delicious Food,
+
+                    </span>
+
+                    <br>
+
+                    <span class="orange-text">
+
+                        Delivered To Your Door
+
+                    </span>
+
+                </h1>
+
+
+                <p>
+
+                    Discover your favourite restaurants,
+                    explore delicious food, and enjoy
+                    quick delivery with FoodLounge.
+
+                </p>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             RIGHT LOGIN SECTION
+        ========================= -->
+
+        <section class="login-section">
+
+
+            <div class="login-container">
+
+
+                <!-- LOGIN TITLE -->
+
+                <div class="login-title">
+
+
+                    <h2>
+
+                        Welcome
+
+                        <span>Back!</span>
+
+                    </h2>
+
+
+                    <p>
+
+                        Log in to continue exploring
+                        delicious food with FoodLounge.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <!-- LOGIN FORM -->
+
+                <form action="login" method="post">
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+
+                        <label for="email">
+
+                            Email ID
+
+                        </label>
+
+
+                        <input
+
+                            type="email"
+
+                            id="email"
+
+                            name="email"
+
+                            placeholder="Enter your email address"
+
+                            required
+
+                        >
+
+
+                    </div>
+
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="form-group">
+
+
+                        <label for="password">
+
+                            Password
+
+                        </label>
+
+
+                        <input
+
+                            type="password"
+
+                            id="password"
+
+                            name="password"
+
+                            placeholder="Enter your password"
+
+                            required
+
+                        >
+
+
+                    </div>
+
+
+
+                    <!-- FORGOT PASSWORD -->
+
+                    <div class="forgot-password">
+
+
+                        <a href="#">
+
+                            Forgot Password?
+
+                        </a>
+
+
+                    </div>
+
+
+
+                    <!-- LOGIN BUTTON -->
+
+                    <button
+
+                        type="submit"
+
+                        class="login-btn"
+
+                    >
+
+                        Login
+
+                    </button>
+
+
+
+                    <!-- SIGNUP LINK -->
+
+                    <p class="signup-text">
+
+
+                        Don't have an account?
+
+
+                        <a href="register.html">
+
+                            Create Account
+
+                        </a>
+
+
+                    </p>
+
+
+                </form>
+
+
+            </div>
+
+
+        </section>
+
+
+    </div>
+
+
+</body>
+
+</html>

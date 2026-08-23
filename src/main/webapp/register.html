@@ -1,0 +1,569 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>FoodLounge - Sign Up</title>
+
+    <style>
+      /* =========================
+           BASIC RESET
+        ========================= */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      /* =========================
+           PAGE BACKGROUND
+        ========================= */
+
+      body {
+        min-height: 100vh;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        padding: 25px;
+
+        background: linear-gradient(135deg, #fff4e6, #ffe0b2);
+      }
+
+      /* =========================
+           MAIN CONTAINER
+        ========================= */
+
+      .signup-page {
+        width: 100%;
+
+        max-width: 1200px;
+
+        min-height: 700px;
+
+        display: flex;
+
+        background-color: white;
+
+        border-radius: 22px;
+
+        overflow: hidden;
+
+        box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18);
+      }
+
+      /* =========================
+           LEFT SIDE
+        ========================= */
+
+      .food-section {
+        width: 50%;
+
+        position: relative;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        padding: 60px;
+
+        color: white;
+
+        overflow: hidden;
+
+        background-image:
+          linear-gradient(rgba(20, 15, 10, 0.58), rgba(20, 15, 10, 0.72)),
+          url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=85");
+
+        background-size: cover;
+
+        background-position: center;
+      }
+
+      /* =========================
+           FOODLOUNGE LOGO
+        ========================= */
+
+      .food-logo {
+        position: absolute;
+
+        top: 35px;
+
+        left: 50px;
+
+        font-size: 29px;
+
+        font-weight: bold;
+      }
+
+      .food-logo span {
+        color: #ff6a2a;
+      }
+
+      /* =========================
+           LEFT CONTENT
+        ========================= */
+
+      .food-content h1 {
+        font-size: 58px;
+        line-height: 1.15;
+        margin-bottom: 25px;
+        font-weight: 800;
+      }
+
+      .white-text {
+        color: white;
+      }
+
+      .orange-text {
+        background: linear-gradient(90deg, #ff6330, #ffb27c);
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        background-clip: text;
+        color: transparent;
+      }
+      .food-content p {
+        font-size: 18px;
+        line-height: 1.7;
+        color: #f2f2f2;
+        margin-bottom: 30px;
+      }
+
+      /* =========================
+           FEATURES
+        ========================= */
+
+      .food-features {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 13px;
+      }
+
+      .feature {
+        padding: 11px 17px;
+
+        border-radius: 25px;
+
+        background-color: rgba(255, 255, 255, 0.18);
+
+        border: 1px solid rgba(255, 255, 255, 0.3);
+
+        font-size: 14px;
+      }
+
+      /* =========================
+           RIGHT SIDE
+        ========================= */
+
+      .form-section {
+        width: 50%;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        padding: 45px;
+
+        background-color: white;
+
+        overflow-y: auto;
+      }
+
+      /* =========================
+           REGISTRATION CONTAINER
+        ========================= */
+
+      .registration-container {
+        width: 100%;
+
+        max-width: 460px;
+      }
+
+      /* =========================
+           FORM TITLE
+        ========================= */
+
+      .form-title {
+        margin-bottom: 28px;
+      }
+
+      .form-title h2 {
+        font-size: 34px;
+
+        color: #252525;
+
+        margin-bottom: 9px;
+      }
+
+      .form-title h2 span {
+        color: #ff5a1f;
+      }
+
+      .form-title p {
+        color: #777;
+
+        font-size: 15px;
+      }
+
+      /* =========================
+           FORM
+        ========================= */
+
+      .form-group {
+        margin-bottom: 17px;
+      }
+
+      label {
+        display: block;
+
+        margin-bottom: 7px;
+
+        font-size: 15px;
+
+        font-weight: bold;
+
+        color: #333;
+      }
+
+      /* =========================
+           INPUTS
+        ========================= */
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+
+        padding: 13px 14px;
+
+        border: 1px solid #d5d5d5;
+
+        border-radius: 9px;
+
+        outline: none;
+
+        font-size: 15px;
+
+        color: #333;
+
+        transition: 0.3s;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: #ff5a1f;
+
+        box-shadow: 0 0 0 3px rgba(255, 90, 31, 0.12);
+      }
+
+      /* =========================
+           ADDRESS
+        ========================= */
+
+      textarea {
+        height: 80px;
+
+        resize: none;
+      }
+
+      /* =========================
+           SIGN UP BUTTON
+        ========================= */
+
+      .signup-btn {
+        width: 100%;
+
+        padding: 14px;
+
+        border: none;
+
+        border-radius: 9px;
+
+        background-color: #ff5a1f;
+
+        color: white;
+
+        font-size: 16px;
+
+        font-weight: bold;
+
+        cursor: pointer;
+
+        transition: 0.3s;
+      }
+
+      .signup-btn:hover {
+        background-color: #e9470f;
+
+        transform: translateY(-2px);
+      }
+
+      /* =========================
+           LOGIN TEXT
+        ========================= */
+
+      .login-text {
+        text-align: center;
+
+        margin-top: 19px;
+
+        color: #666;
+
+        font-size: 14px;
+      }
+
+      .login-text a {
+        color: #ff5a1f;
+
+        text-decoration: none;
+
+        font-weight: bold;
+      }
+
+      .login-text a:hover {
+        text-decoration: underline;
+      }
+
+      /* =========================
+           TABLET RESPONSIVE
+        ========================= */
+
+      @media (max-width: 900px) {
+        body {
+          padding: 15px;
+        }
+
+        .signup-page {
+          min-height: auto;
+        }
+
+        .food-section {
+          padding: 40px;
+        }
+
+        .food-content h1 {
+          font-size: 37px;
+        }
+
+        .form-section {
+          padding: 35px 28px;
+        }
+      }
+
+      /* =========================
+           MOBILE RESPONSIVE
+        ========================= */
+
+      @media (max-width: 700px) {
+        body {
+          padding: 0;
+
+          display: block;
+        }
+
+        .signup-page {
+          min-height: 100vh;
+
+          border-radius: 0;
+
+          flex-direction: column;
+        }
+
+        .food-section {
+          width: 100%;
+
+          min-height: 330px;
+
+          padding: 100px 30px 45px;
+        }
+
+        .food-logo {
+          top: 28px;
+
+          left: 30px;
+        }
+
+        .food-content h1 {
+          font-size: 34px;
+        }
+
+        .food-content p {
+          font-size: 16px;
+        }
+
+        .form-section {
+          width: 100%;
+
+          padding: 40px 25px;
+        }
+
+        .form-title h2 {
+          font-size: 29px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =========================
+         COMPLETE SIGNUP PAGE
+    ========================= -->
+
+    <div class="signup-page">
+      <!-- =========================
+             LEFT FOOD SECTION
+        ========================= -->
+
+      <section class="food-section">
+        <div class="food-logo">Food<span>Lounge</span></div>
+
+        <div class="food-content">
+          <h1>
+            <span class="white-text"> Delicious Food, </span>
+
+            <br />
+
+            <span class="orange-text"> Delivered To Your Door </span>
+          </h1>
+
+          <p>
+            Discover your favourite restaurants, explore delicious food, and
+            enjoy quick delivery with FoodLounge.
+          </p>
+
+          <div class="food-features">
+            <div class="feature">🍔 Delicious Food</div>
+
+            <div class="feature">⚡ Fast Delivery</div>
+
+            <div class="feature">🛵 Easy Ordering</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+             RIGHT FORM SECTION
+        ========================= -->
+
+      <section class="form-section">
+        <div class="registration-container">
+          <!-- FORM HEADING -->
+
+          <div class="form-title">
+            <h2>
+              Create Your
+
+              <span>Account</span>
+            </h2>
+
+            <p>Sign up and start enjoying delicious food today.</p>
+          </div>
+
+          <!-- REGISTRATION FORM -->
+
+          <form action="register" method="post">
+            <!-- NAME -->
+
+            <div class="form-group">
+              <label for="name"> Full Name </label>
+
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your full name"
+                required
+              />
+            </div>
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+              <label for="email"> Email ID </label>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email address"
+                required
+              />
+            </div>
+
+            <!-- PASSWORD -->
+
+            <div class="form-group">
+              <label for="password"> Password </label>
+
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Create a strong password"
+                required
+              />
+            </div>
+
+            <!-- ROLE -->
+
+            <div class="form-group">
+              <label for="role"> Select Your Role </label>
+
+              <select id="role" name="role" required>
+                <option value="">-- Select Role --</option>
+
+                <option value="customer">Customer</option>
+
+                <option value="restaurant-admin">Restaurant Admin</option>
+
+                <option value="super-admin">Super Admin</option>
+              </select>
+            </div>
+
+            <!-- ADDRESS -->
+
+            <div class="form-group">
+              <label for="address"> Address </label>
+
+              <textarea
+                id="address"
+                name="address"
+                placeholder="Enter your complete address"
+                required
+              ></textarea>
+            </div>
+
+            <!-- CREATE ACCOUNT -->
+
+            <button type="submit" class="signup-btn">Create Account</button>
+
+            <!-- LOGIN -->
+
+            <p class="login-text">
+              Already have an account?
+
+              <a href="login.html"> Login </a>
+            </p>
+          </form>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
