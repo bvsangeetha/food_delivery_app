@@ -50,7 +50,7 @@ public class UserDAOImpl implements UserDAO{
 	@Override
 	public  User getUser(int userId) {
 		
-		String GET_QUERY="SELECT * FROM User WHERE userId=?";
+		String GET_QUERY="SELECT * FROM user WHERE userId=?";
 
 		User user=null;
 		Connection connection = DBConnection.getConnection();
@@ -153,7 +153,7 @@ public class UserDAOImpl implements UserDAO{
 
 	@Override
 	public void updateUser(User user) {
-		String UPDATE_QUERY="UPDATE USER SET userName =?, password=?, email=?, address=?, lastLogindate=? "
+		String UPDATE_QUERY="UPDATE user SET userName =?, password=?, email=?, address=?, lastLogindate=? "
 				+"WHERE userId=? ";
 		Connection connection = DBConnection.getConnection();
 		try {

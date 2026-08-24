@@ -1035,7 +1035,7 @@
         <input
             type="radio"
             name="paymentMethod"
-            value="UPI"
+            value="Online"
             required
         >
 
@@ -1062,7 +1062,7 @@
         <input
             type="radio"
             name="paymentMethod"
-            value="CARD"
+            value="Online"
         >
 
         <div class="payment-icon">
@@ -1088,7 +1088,7 @@
         <input
             type="radio"
             name="paymentMethod"
-            value="COD"
+            value="Cash"
         >
 
         <div class="payment-icon">
@@ -1114,7 +1114,7 @@
         <input
             type="radio"
             name="paymentMethod"
-            value="NET_BANKING"
+            value="Online"
         >
 
         <div class="payment-icon">
