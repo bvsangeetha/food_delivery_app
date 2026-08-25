@@ -1303,7 +1303,7 @@
       <nav class="navbar">
         <!-- Brand Logo -->
         <div class="brand-container">
-          <a href="#" class="logo">
+          <a href="restaurant" class="logo">
             <div class="logo-icon">
               <!-- SVG Flame / Utensils Icon -->
               <svg viewBox="0 0 24 24">
@@ -1317,54 +1317,70 @@
         <!-- Nav Links & User Actions -->
         <div class="nav-menu">
           <ul class="nav-links">
-            <li><a href="restaurant" class="active">Home</a></li>
+           <li><a href="#home" class="active">Home</a></li>
             <li><a href="#categories">Categories</a></li>
-            <li><a href="restaurant">Restaurants</a></li>
+            <li><a href="#restaurants">Restaurants</a></li>
             <li><a href="cart.jsp" class="nav-plain-icon" title="Cart">
               <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
               Cart
             </a></li>
-            <li>
+           <% if (user != null) { %>
 
-    <a href="profile"
-       class="nav-plain-icon user-profile"
-       title="My Profile">
+    <!-- Profile -->
+    <li>
+        <a href="profile"
+           class="nav-plain-icon user-profile"
+           title="My Profile">
 
-        <!-- Existing profile icon -->
+            <svg viewBox="0 0 24 24"
+                 width="20"
+                 height="20"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 fill="none">
 
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+
+            </svg>
+
+            <span class="user-name">
+                <%= user.getUserName() %>
+            </span>
+
+        </a>
+    </li>
+
+
+    <!-- Logout -->
+    <li>
+    <a href="logout"
+       class="nav-plain-icon"
+       title="Logout">
         <svg viewBox="0 0 24 24"
              width="20"
              height="20"
              stroke="currentColor"
              stroke-width="2"
              fill="none">
-
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/>
-
+            <path d="M10 17l5-5-5-5"/>
+            <path d="M15 12H3"/>
+            <path d="M21 3v18"/>
         </svg>
-
-        <!-- Logged-in user's name -->
-
-        <span class="user-name">
-    			<%= (user != null) ? user.getUserName() : "Guest" %>
-		</span>
-
+        <span>Logout</span>
     </a>
-
 </li>
-          </ul>
 
-          <% if (user == null) { %>
 
-    		<div class="nav-actions">
+<% } else { %>
 
-        <a href="login.html" class="btn-auth-ghost">Sign In</a>
+    <!-- Sign In / Sign Up -->
+     <li>
+        <a href="login.html">Log In</a>
+        
+    </li>
 
-        <a href="register.html" class="btn-auth-ghost">Sign Up</a>
-
-    		</div>
-
-		<% } %>
+<% } %>
         </div>
       </nav>
     </header>

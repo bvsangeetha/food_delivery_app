@@ -810,7 +810,7 @@ User user = (User) session.getAttribute("user");
     <header>
       <nav class="navbar">
         <div class="brand-container">
-          <a href="index.html" class="logo">
+          <a href="restaurant" class="logo">
             <div class="logo-icon">
               <svg viewBox="0 0 24 24">
                 <path d="M12 2C8 7 4 9 4 14a8 8 0 0 0 16 0c0-5-4-7-8-12zm0 17a5 5 0 0 1-5-5c0-2.5 2-4 5-7 3 3 5 4.5 5 7a5 5 0 0 1-5 5z"/>
@@ -833,38 +833,63 @@ User user = (User) session.getAttribute("user");
                 Cart
               </a>
             </li>
-            <li>
-    		<a href="profile.jsp" class="nav-plain-icon" title="Profile">
-		        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
-		            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 3a4 4 0 1 0 0 8 4 4 0 0 0-0-8z"/>
-		        </svg>
-		        <%= user.getUserName() %>
-   		 </a>
-	</li> 
           </ul>
 
           <div class="nav-actions">
 
-    <%
-        if (user != null) {
-    %>
+    <% if (user != null) { %>
 
-        <a href="login.html" class="btn-auth-ghost">Logout</a>
+    <a href="profile.jsp" class="nav-plain-icon" title="Profile">
+        <svg viewBox="0 0 24 24"
+             width="20"
+             height="20"
+             stroke="currentColor"
+             stroke-width="2"
+             fill="none">
 
-    <%
-        } else {
-    %>
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2
+                     M12 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/>
+        </svg>
 
-        <a href="login.html" class="btn-auth-ghost">Sign In</a>
+        <%= user.getUserName() %>
+    </a>
 
-        <a href="signup.html" class="btn-auth-solid">Sign Up</a>
+    <!-- LOGOUT -->
+    <a href="logout" class="nav-plain-icon" title="Logout">
+        <svg viewBox="0 0 24 24"
+             width="20"
+             height="20"
+             stroke="currentColor"
+             stroke-width="2"
+             fill="none">
 
-    <%
-        }
-    %>
+            <path d="M9 21H5a2 2 0 0 1-2-2V5
+                     a2 2 0 0 1 2-2h4"/>
+
+            <polyline points="16 17 21 12 16 7"/>
+
+            <line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+
+        Logout
+    </a>
+
+<% } else { %>
+
+        <a href="login.html" class="nav-plain-icon" title="Login">
+            <svg viewBox="0 0 24 24" width="20" height="20"
+                 stroke="currentColor" stroke-width="2" fill="none">
+
+                <path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2
+                         c-4.42 0-8 2.24-8 5v3h16v-3c0-2.76-3.58-5-8-5z"/>
+            </svg>
+
+            Login
+        </a>
+
+    <% } %>
 
 </div>
-        </div>
       </nav>
     </header>
 
